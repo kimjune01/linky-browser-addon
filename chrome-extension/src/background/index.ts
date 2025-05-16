@@ -22,7 +22,7 @@ chrome.runtime.onMessage.addListener(message => {
     console.log('Sending native message');
     chrome.runtime.sendNativeMessage(
       'com.linky.link', // Native messaging host name
-      { type: 'markdown', content: message.content, profile: message.profile },
+      message,
       response => {
         if (chrome.runtime.lastError) {
           console.error('Native message error:', chrome.runtime.lastError.message);
